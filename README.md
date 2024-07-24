@@ -6,3 +6,6 @@ Dependencias e bibliotecas utilizadas e/ou necessarias:
 -tkinter
 -customtkinter
 
+
+Desenvolvido e testado em ambiente linux.
+
