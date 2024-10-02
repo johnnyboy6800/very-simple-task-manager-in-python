@@ -4,6 +4,7 @@ import tkinter as tk
 root = ctk.CTk()
 root.title("TO DO LIST")
 root.geometry("900x400")
+root.resizable(False, False)
 
 ctk.CTkLabel(root, text="TO DO").grid(row=0, column=0)
 
@@ -15,6 +16,8 @@ limite.grid(row=1, column=0, padx=10)
 frame_check = ctk.CTkFrame(root, fg_color=root.cget("bg"))
 
 frame_check.grid(row= 4, column=0, sticky = "nsew")
+
+
 
 check_buttons = []
 delete_buttons = []
@@ -36,19 +39,14 @@ def add_tarefas_input():
    for i in range(10):
      if labels[i].cget("text") == "" :
           labels[i].configure(text=adicionar_t)
-
           task_frame = ctk.CTkFrame(frame_check)
           task_frame.grid(row=(i + 5))
           task_frames.append(task_frame)
-
-
-          labels[i].grid(in_=task_frame, row=(i + 5), column=0, sticky=tk.W)
-          
+          labels[i].grid(in_=task_frame, row=(i + 6), column=0)
           check = ctk.CTkCheckBox(task_frame, text = "marcar concluído", onvalue=1, offvalue=0)
-          check.grid(row=(i + 5), column=2, sticky="nsew")
-        
+          check.grid(row=(i + 6), column=2, sticky="nsew")
           excluir = ctk.CTkButton(task_frame, text = "excluir tarefa", command=lambda tf=task_frame, idx=i: limpar_t(tf, idx))
-          excluir.grid(row=(i + 5),sticky="nsew", column = 1)
+          excluir.grid(row=(i + 6),sticky="nsew", column = 1)
           delete_buttons.append(excluir)
           break
 
